@@ -1,0 +1,4 @@
+[submodule "emacs"]
+	path = emacs
+	url = git@github.com:Godalin/dotemacs.git
+	branch = main_new_faster
