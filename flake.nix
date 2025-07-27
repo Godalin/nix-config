@@ -100,9 +100,9 @@
       };
 
       # Standalone Home Manager configuration for x86_64 Linux
-      # home-manager switch --flake .#godalin@x86_64-linux
-      homeConfigurations."${userName}@x86_64-linux" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.x86_64-linux;
+      # home-manager switch --flake .#godalin
+      homeConfigurations."${userName}" = home-manager.lib.homeManagerConfiguration {
+        system = "x86_64-linux";
         modules = [
           (
             {
@@ -111,11 +111,18 @@
               dotemacs,
               ...
             }:
-            import ./home.nix
-            // {
-              home.username = "fiction";
-              home.homeDirectory = "/home/fiction";
-            }
+            (
+              import ./home.nix {
+                config = config;
+                pkgs = pkgs;
+                dotemacs = dotemacs;
+              }
+              // {
+                home.username = "fiction";
+                home.homeDirectory = "/home/fiction";
+              }
+            )
+
           )
         ];
         extraSpecialArgs = specialArgs;
