@@ -101,8 +101,8 @@
 
       # Standalone Home Manager configuration for x86_64 Linux
       # home-manager switch --flake .#fiction
-      homeConfigurations.fiction = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.x86_64-linux;
+      homeConfigurations.xxtemp.fiction = home-manager.lib.homeManagerConfiguration {
+        pkgs = import nixpkgs { system = "x86_64-linux"; };
         modules = [
           (
             {
@@ -112,11 +112,11 @@
               ...
             }:
             (
-              import ./home.nix {
+              (import ./home.nix {
                 config = config;
                 pkgs = pkgs;
                 dotemacs = dotemacs;
-              }
+              })
               // {
                 home.username = "fiction";
                 home.homeDirectory = "/home/fiction";
