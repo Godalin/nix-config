@@ -101,7 +101,7 @@
 
       # Standalone Home Manager configuration for x86_64 Linux
       # home-manager switch --flake .#fiction
-      homeConfigurations.xxtemp.fiction = home-manager.lib.homeManagerConfiguration {
+      homeConfigurations."xxtemp.fiction" = home-manager.lib.homeManagerConfiguration {
         pkgs = import nixpkgs { system = "x86_64-linux"; };
         modules = [
           (
