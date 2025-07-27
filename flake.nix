@@ -100,9 +100,9 @@
       };
 
       # Standalone Home Manager configuration for x86_64 Linux
-      # home-manager switch --flake .#godalin
-      homeConfigurations.xxtemp.fiction = home-manager.lib.homeManagerConfiguration {
-        system = "x86_64-linux";
+      # home-manager switch --flake .#fiction
+      homeConfigurations.fiction = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.x86_64-linux;
         modules = [
           (
             {
