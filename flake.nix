@@ -104,7 +104,7 @@
       homeConfigurations."fiction" = home-manager.lib.homeManagerConfiguration {
         pkgs = import nixpkgs { system = "x86_64-linux"; };
         modules = [
-          /home.nix
+          ./home.nix
           {
             home.username = "fiction";
             home.homeDirectory = "/home/fiction";
