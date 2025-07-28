@@ -104,17 +104,9 @@
       homeConfigurations."fiction" = home-manager.lib.homeManagerConfiguration {
         pkgs = import nixpkgs { system = "x86_64-linux"; };
         modules = [
-          (
-            {
-              config,
-              pkgs,
-              dotemacs,
-              ...
-            }:
-            import ./home.nix { inherit config pkgs dotemacs; }
-          )
+          ./home.nix
           {
-            home.username = "fiction";
+            home.username = lib.mkForce "fiction";
             home.homeDirectory = "/home/fiction";
           }
         ];

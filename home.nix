@@ -1,5 +1,6 @@
 {
   config,
+  lib,
   pkgs,
   dotemacs,
   ...
@@ -37,7 +38,7 @@ let
 in
 
 {
-  home.username = "godalin";
+  home.username = lib.mkDefault "godalin";
   home.packages =
     with pkgs;
     [
